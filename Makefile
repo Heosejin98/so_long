@@ -1,6 +1,6 @@
-NAME		= push_swap
+NAME		= so_long
 
-CC 			= gcc
+CC 			= cc
 FLAGS 		= -Wall -Werror -Wextra
 
 LIBC		= ar rc
@@ -32,6 +32,9 @@ $(NAME) : $(OBJ)
 	@make -C $(LIB_DIR) 
 	@$(CC) $(FLAGS) $(OBJ) $(LIBFT_A) -o $(NAME)
 	@echo "$(GREEN)$(NAME) compiled"
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@$(CC) $(FLAGS) -c $< -o $@ $(INCS)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@$(CC) $(FLAGS) -c $< -o $@ $(INCS)
