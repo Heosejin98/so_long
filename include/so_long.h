@@ -6,7 +6,7 @@
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:08:27 by seheo             #+#    #+#             */
-/*   Updated: 2022/08/16 22:02:46 by seheo            ###   ########.fr       */
+/*   Updated: 2022/08/17 15:53:15 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,17 @@
 //지워!!
 #include <stdio.h>
 
-# define X_EVENT_KEY_PRESS			2
-# define X_EVENT_KEY_RELEASE		3
-# define BUFFER_SIZE				100
+# define ON_KEYDOWN		2
+# define ON_KEYUP		17
+# define BUFFER_SIZE	100
 
-# define KEY_ESC		53
-# define KEY_W			13
-# define KEY_A			0
-# define KEY_S			1
-# define KEY_D			2
+enum e_key_type {   
+    ESC = 53,
+    W = 13,
+    A = 0,
+    S = 1,
+    D = 2
+};
 
 typedef struct s_img
 {
@@ -38,30 +40,64 @@ typedef struct s_img
 	void	*item;
 	void	*player;
 	void	*wall;
-}	t_img;
+}			t_img;
 
 typedef struct s_game{
+	void	*mlx;
+	void	*mlx_win;
 	int		height;
 	int		width;
 	char	*map;
 	t_img	img;
-	void	*mlx;
-	void	*mlx_win;
 	int		walk_cnt;
+	int		current_item;
+	int		all_item;
 }			t_game;
 
+
+/*
+	io
+*/
+void	error(char *str);
+int		press_key(int key_code, t_game *game);
+int		exit_game(t_game *game);
+
+/*
+	map
+*/
 void	map_read(char *filename, t_game *game);
+void	setting_img(t_game *game);
+void	map_check(t_game *game);
 
+/*
+	mlx
+*/
+void	game_init(t_game *game, char *map);
+t_img	img_init(void *mlx);
 
+/*
+	move
+*/
+void	move_a(t_game *game);
+void	move_s(t_game *game);
+void	move_d(t_game *game);
+void	move_w(t_game *game);
+int		clear_game(t_game *game);
+
+/*
+	gnl
+*/
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char *s2);
-size_t	ft_strlen(const char *str);
+int		ft_strlen(const char *str);
 char	*ft_strchr(const char *str, int c);
 char	*ft_strjoin(char *s1, char *s2);
 char	*s1_init(char *s1);
 
+/*
+	ft_str
+*/
 char	*ft_strjoin_without_newline(char *s1, char *s2);
 char    *ft_strdup_without_newline(const char *s);
-
 
 #endif

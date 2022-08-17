@@ -1,13 +1,19 @@
 NAME		= so_long
 
 CC 			= cc
-FLAGS		= -Wall -Wextra -Werror -g3
+#FLAGS		= -Wall -Wextra -Werror
+FLAGS		= -g3
 
 SRC_FILES	= main.c \
 			io.c \
 			ft_str.c \
 			get_next_line.c \
-			get_next_line_utils.c
+			get_next_line_utils.c \
+			map_init.c \
+			map_check.c \
+			mlx_init.c \
+			move.c
+
 
 MLX_DIR 	= mlx
 MLX  		= mlx/Makefile

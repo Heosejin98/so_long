@@ -6,15 +6,15 @@
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 20:05:27 by seheo             #+#    #+#             */
-/*   Updated: 2022/08/16 20:32:03 by seheo            ###   ########.fr       */
+/*   Updated: 2022/08/17 15:53:41 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-size_t	ft_strlen(const char *str)
+int	ft_strlen(const char *str)
 {
-	size_t	len;
+	int	len;
 
 	len = 0;
 	if (!str)

@@ -6,7 +6,7 @@
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 20:31:16 by seheo             #+#    #+#             */
-/*   Updated: 2022/08/16 21:26:17 by seheo            ###   ########.fr       */
+/*   Updated: 2022/08/17 16:26:36 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,11 @@ char	*ft_strjoin_without_newline(char *s1, char *s2)
 			break;
 	}
 	while (s2[j] != '\0')
+	{
 		str[i++] = s2[j++];
+		if(s2[j] == '\n')
+			break;
+	}
 	str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
 	free(s1);
 	return (str);

@@ -6,7 +6,7 @@
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 20:06:34 by seheo             #+#    #+#             */
-/*   Updated: 2022/08/16 20:54:29 by seheo            ###   ########.fr       */
+/*   Updated: 2022/08/17 13:38:41 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ char	*get_next_line(int fd)
 	int				count;
 	char			buf[BUFFER_SIZE + 1];
 	char			*result;
-	static char		*file_text[2147483647];
+	static char		*file_text[10];
 
 	count = 1;
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 2147483647)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 10)
 		return (0);
 	while (count != 0)
 	{
