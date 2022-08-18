@@ -6,7 +6,7 @@
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:41:04 by seheo             #+#    #+#             */
-/*   Updated: 2022/08/17 16:17:52 by seheo            ###   ########.fr       */
+/*   Updated: 2022/08/18 15:21:15 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,26 @@
 static void	put_img(t_game *g, int w, int h)
 {
 	if (g->map[h * g->width + w] == '1')
-	{
-		mlx_put_image_to_window(g->mlx, g->mlx_win, g->img.wall, w * 64, h * 64);
-	}
+		mlx_put_image_to_window(g->mlx, g->mlx_win, g->img.wall, \
+			w * 64, h * 64);
 	else if (g->map[h * g->width + w] == 'C')
-	{
-		mlx_put_image_to_window(g->mlx, g->mlx_win, g->img.item, w * 64, h * 64);
-	}
+		mlx_put_image_to_window(g->mlx, g->mlx_win, g->img.item, \
+			w * 64, h * 64);
 	else if (g->map[h * g->width + w] == 'P')
-	{
-		mlx_put_image_to_window(g->mlx, g->mlx_win, g->img.player, w * 64, h * 64);
-	}
+		mlx_put_image_to_window(g->mlx, g->mlx_win, g->img.player, \
+			w * 64, h * 64);
 	else if (g->map[h * g->width + w] == 'E')
-	{
-		mlx_put_image_to_window(g->mlx, g->mlx_win, g->img.end, w * 64, h * 64);
-	}
+		mlx_put_image_to_window(g->mlx, g->mlx_win, g->img.end, \
+			w * 64, h * 64);
 	else
-	{
-		mlx_put_image_to_window(g->mlx, g->mlx_win, g->img.empty, w * 64, h * 64);
-	}
+		mlx_put_image_to_window(g->mlx, g->mlx_win, g->img.empty, \
+			w * 64, h * 64);
 }
 
 void	map_read(char *filename, t_game *game)
 {
-	int  fd;
-	char *line;
+	int		fd;
+	char	*line;
 
 	fd = open(filename, O_RDONLY);
 	line = get_next_line(fd);
@@ -51,14 +46,12 @@ void	map_read(char *filename, t_game *game)
 	{
 		game->height++;
 		line = get_next_line(fd);
-		printf("%s\n", line);
 		if (line)
 		{
 			game->map = ft_strjoin_without_newline(game->map, line);
 		}
 		free(line);
 	}
-	printf("%s\n", game->map);
 	close(fd);
 }
 

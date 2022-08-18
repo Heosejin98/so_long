@@ -6,12 +6,11 @@
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:56:51 by seheo             #+#    #+#             */
-/*   Updated: 2022/08/17 15:47:25 by seheo            ###   ########.fr       */
+/*   Updated: 2022/08/18 15:15:08 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
-
 
 int	exit_game(t_game *game)
 {
@@ -36,9 +35,14 @@ int	press_key(int key_code, t_game *game)
 
 void	ft_putstr_fd(char *s, int fd)
 {
+	int	i;
+
 	if (!(s) || fd < 0)
 		return ;
-	write(fd, s, ft_strlen(s) - 1);
+	i = 0;
+	while (s[i])
+		i++;
+	write(fd, s, i);
 	write(fd, "\n", 2);
 }
 

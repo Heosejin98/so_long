@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/16 15:48:07 by seheo             #+#    #+#             */
-/*   Updated: 2022/08/18 15:23:49 by seheo            ###   ########.fr       */
+/*   Created: 2022/08/18 14:14:15 by seheo             #+#    #+#             */
+/*   Updated: 2022/08/18 15:13:10 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	main(int argc, char **argv)
+void	ft_bzero(void *b, size_t n)
 {
-	t_game	*game;
+	unsigned char	*dest;
+	size_t			i;
 
-	if (argc != 2)
-		error("no map");
-	game = (t_game *)malloc(sizeof(t_game));
-	game_init(game, argv[1]);
-	map_check(game);
-	mlx_hook(game->mlx_win, ON_KEYDOWN, 0, &press_key, game);
-	mlx_hook(game->mlx_win, DESTROY_NOTIFY, 0, &exit_game, game);
-	mlx_loop(game->mlx);
-	return (0);
+	dest = b;
+	i = 0;
+	while (i++ < n)
+		*dest++ = 0;
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*ptr;
+
+	ptr = (void *)malloc(count * size);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, count);
+	return (ptr);
 }

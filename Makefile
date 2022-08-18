@@ -1,8 +1,8 @@
 NAME		= so_long
 
 CC 			= cc
-#FLAGS		= -Wall -Wextra -Werror
-FLAGS		= -g3
+FLAGS		= -Wall -Wextra -Werror
+
 
 SRC_FILES	= main.c \
 			io.c \
@@ -12,7 +12,11 @@ SRC_FILES	= main.c \
 			map_init.c \
 			map_check.c \
 			mlx_init.c \
-			move.c
+			move.c	\
+			ft_itoa.c \
+			ft_calloc.c \
+			ft_strdup.c \
+			printf_walk.c 
 
 
 MLX_DIR 	= mlx
@@ -21,7 +25,8 @@ MLX  		= mlx/Makefile
 SRC_DIR		= ./src/
 OBJ_DIR		= ./obj/
 INCS		= -I ./include/
-MLX_LIB		= -lmlx -framework OpenGl -framework AppKit -Imlx 
+MLX_LIB		= -lmlx -framework OpenGl -framework AppKit -Imlx
+
 
 GREEN		= \033[0;92m
 YELLOW		= \033[0;93m
@@ -35,9 +40,9 @@ OBJ			= $(addprefix $(OBJ_DIR), $(OBJ_FILES))
 all	: $(OBJ_DIR) $(NAME)
 
 $(NAME) : $(OBJ)
+	echo "$(GREEN)make $(PRI_DIR)"
 	@$(CC) $(FLAGS) -o $@ $^ $(MLX_LIB)
 	@echo "$(GREEN)$(NAME) compiled"
-
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@$(CC) $(FLAGS) -c $< -o $@  $(INCS)

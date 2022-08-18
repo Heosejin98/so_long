@@ -6,7 +6,7 @@
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 21:54:14 by seheo             #+#    #+#             */
-/*   Updated: 2022/08/17 13:53:47 by seheo            ###   ########.fr       */
+/*   Updated: 2022/08/18 15:24:18 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,13 @@ t_img	img_init(void *mlx)
 	return (img);
 }
 
-void game_init(t_game *game, char *map)
+void	game_init(t_game *game, char *map)
 {
 	game->mlx = mlx_init();
 	game->img = img_init(game->mlx);
+	game->walk_cnt = 0;
 	map_read(map, game);
-	game->mlx_win = mlx_new_window(game->mlx, game->width * 64, game->height * 64, "so_long"); 
+	game->mlx_win = mlx_new_window(game->mlx, game->width * 64, \
+					game->height * 64, "so_long");
 	setting_img(game);
 }
