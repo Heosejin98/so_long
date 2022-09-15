@@ -6,7 +6,7 @@
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:08:27 by seheo             #+#    #+#             */
-/*   Updated: 2022/08/18 15:31:27 by seheo            ###   ########.fr       */
+/*   Updated: 2022/09/15 21:58:20 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_game
 char	*ft_itoa(int n);
 char	*ft_strdup(const char *s);
 void	*ft_calloc(size_t count, size_t size);
+int		ft_strcmp(const char *s1, const char *s2);
 
 /*
 	io
@@ -64,7 +65,7 @@ void	error(char *str);
 int		press_key(int key_code, t_game *game);
 int		exit_game(t_game *game);
 void	ft_putstr_fd(char *s, int fd);
-
+void	file_type_check(char *file_name);
 /*
 	map
 */

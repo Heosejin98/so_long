@@ -16,6 +16,7 @@ SRC_FILES	= main.c \
 			ft_itoa.c \
 			ft_calloc.c \
 			ft_strdup.c \
+			ft_strcmp.c \
 			printf_walk.c 
 
 

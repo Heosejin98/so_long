@@ -6,7 +6,7 @@
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:41:04 by seheo             #+#    #+#             */
-/*   Updated: 2022/08/18 15:21:15 by seheo            ###   ########.fr       */
+/*   Updated: 2022/09/15 21:59:21 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	map_read(char *filename, t_game *game)
 	char	*line;
 
 	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+		error("no search file");
 	line = get_next_line(fd);
 	game->height = 0;
 	game->width = ft_strlen(line) - 1;

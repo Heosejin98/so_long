@@ -6,7 +6,7 @@
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:56:51 by seheo             #+#    #+#             */
-/*   Updated: 2022/08/18 15:15:08 by seheo            ###   ########.fr       */
+/*   Updated: 2022/09/15 21:58:46 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,26 @@ void	error(char *str)
 	write(2, "Error ", 6);
 	ft_putstr_fd(str, 2);
 	exit(1);
+}
+
+void	file_type_check(char *file_name)
+{
+	int		i;
+	int		j;
+	char	ber[5];
+
+	i = 0;
+	j = 0;
+	while (file_name[i] && file_name[i] != '.')
+		i++;
+	if (ft_strlen(file_name) - i != 4)
+		error("no ber");
+	while (file_name[i])
+	{
+		ber[j] = file_name[i];
+		j++;
+		i++;
+	}
+	if (ft_strcmp(ber, ".ber") != 0)
+		error("no ber");
 }

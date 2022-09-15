@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/16 15:48:07 by seheo             #+#    #+#             */
-/*   Updated: 2022/09/15 21:58:57 by seheo            ###   ########.fr       */
+/*   Created: 2022/09/15 21:09:40 by seheo             #+#    #+#             */
+/*   Updated: 2022/09/15 21:14:44 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	main(int argc, char **argv)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	t_game	*game;
+	size_t	i;
 
-	if (argc != 2)
-		error("no map");
-	file_type_check(argv[1]);
-	game = (t_game *)malloc(sizeof(t_game));
-	game_init(game, argv[1]);
-	map_check(game);
-	mlx_hook(game->mlx_win, ON_KEYDOWN, 0, &press_key, game);
-	mlx_hook(game->mlx_win, DESTROY_NOTIFY, 0, &exit_game, game);
-	mlx_loop(game->mlx);
-	return (0);
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return (s1[i] - s2[i]);
 }
