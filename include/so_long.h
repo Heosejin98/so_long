@@ -6,7 +6,7 @@
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 16:08:27 by seheo             #+#    #+#             */
-/*   Updated: 2022/09/15 21:58:20 by seheo            ###   ########.fr       */
+/*   Updated: 2022/09/16 15:34:07 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ int		ft_strlen(const char *str);
 char	*ft_strjoin_without_newline(char *s1, char *s2);
 char	*ft_strdup_without_newline(const char *s);
 int		strlen2(const char *str);
-
 void	printf_walk(int n);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: seheo <seheo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:41:04 by seheo             #+#    #+#             */
-/*   Updated: 2022/09/15 21:59:21 by seheo            ###   ########.fr       */
+/*   Updated: 2022/09/16 15:33:55 by seheo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	map_read(char *filename, t_game *game)
 		error("no search file");
 	line = get_next_line(fd);
 	game->height = 0;
-	game->width = ft_strlen(line) - 1;
+	game->width = strlen2(line);
 	game->map = ft_strdup_without_newline(line);
 	free(line);
 	while (line)
@@ -50,6 +50,8 @@ void	map_read(char *filename, t_game *game)
 		line = get_next_line(fd);
 		if (line)
 		{
+			if (game->width != strlen2(line))
+				error("no Rectangle");
 			game->map = ft_strjoin_without_newline(game->map, line);
 		}
 		free(line);
